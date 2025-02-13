@@ -137,10 +137,6 @@ class BeerControllerTest {
         given(beerService.saveNewBeer(any(BeerDTO.class))).willReturn(beerServiceImpl.listBeers(null, null, false, 1, 25).getContent().get(1));
 
         mockMvc.perform(post(BeerController.BEER_PATH)
-                // TODO: Seems like if you change the username, it doesn't matter, the test still passes.
-                // Same with the password? See:
-                // https://www.udemy.com/course/spring-framework-6-beginner-to-guru/learn/practice/1427762/introduction#questions/22526941
-                // https://www.udemy.com/course/spring-framework-6-beginner-to-guru/learn/practice/1427762/introduction#questions/21742788
                         .with(httpBasic(USERNAME, PASSWORD))
                 .accept(MediaType.APPLICATION_JSON)
                         .contentType(MediaType.APPLICATION_JSON)
